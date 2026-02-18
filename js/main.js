@@ -221,15 +221,14 @@ function animateCounter(el) {
 }
 
 /* ── Filter buttons (case studies / intel) ──────────────────── */
-function initFilter(containerSelector, cardSelector, categoryAttr) {
-  const btns = document.querySelectorAll('.filter-btn');
+function initFilter(btnSelector, cardSelector, categoryAttr) {
+  const btns = document.querySelectorAll(btnSelector);
   const cards = document.querySelectorAll(cardSelector);
 
   if (!btns.length || !cards.length) return;
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Update active state
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -252,10 +251,10 @@ function initFilter(containerSelector, cardSelector, categoryAttr) {
 
 // Auto-init filters on case studies + intel pages
 if (document.querySelector('.case-grid')) {
-  initFilter('.case-grid', '.case-card', 'data-category');
+  initFilter('.filter-btn', '.case-card', 'data-category');
 }
-if (document.querySelector('.intel-grid')) {
-  initFilter('.intel-grid', '.intel-card', 'data-category');
+if (document.querySelector('.intel-list')) {
+  initFilter('.intel-tab', '.intel-row', 'data-category');
 }
 
 /* ── iMessage Animation ─────────────────────────────────────── */
