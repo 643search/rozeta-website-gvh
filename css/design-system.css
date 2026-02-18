@@ -116,6 +116,7 @@ body {
   background-color: var(--color-bg);
   line-height: var(--leading-normal);
   overflow-x: hidden;
+  padding-top: var(--nav-height);
 }
 
 img, svg {
