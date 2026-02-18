@@ -504,7 +504,7 @@
 }
 
 .hero-sub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Figtree', sans-serif;
   font-weight: 300;
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
@@ -711,8 +711,9 @@
   width: 100%;
 }
 .problem-text h2 {
+  font-family: var(--font-display);
   font-size: clamp(28px, 3.5vw, 48px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.15;
   margin-bottom: var(--space-4);
 }
