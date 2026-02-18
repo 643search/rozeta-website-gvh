@@ -360,6 +360,12 @@
 .mobile-cta-bar .btn {
   width: 100%;
   justify-content: center;
+  background: #2795A2;
+  border-color: #2795A2;
+}
+.mobile-cta-bar .btn:hover {
+  background: #1e7d89;
+  border-color: #1e7d89;
 }
 
 /* ── HERO ────────────────────────────────────────────────────── */

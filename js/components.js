@@ -17,6 +17,7 @@ const NAV_HTML = `
           <a href="about.html">About Us</a>
           <a href="intel.html">Blog</a>
           <a href="podcast.html">Podcast</a>
+          <a href="index.html#pricing">Pricing</a>
         </div>
       </div>
       <a href="services.html">Services</a>
@@ -88,7 +89,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="contact.html" class="btn btn-primary">Book a Call</a>
+  <a href="services.html#community" class="btn btn-primary">Apply to Community Now</a>
 </div>
 `;
 
