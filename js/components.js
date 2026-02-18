@@ -24,7 +24,7 @@ const NAV_HTML = `
       <a href="case-studies.html">Case Studies</a>
     </div>
     <div class="nav-cta">
-      <a href="services.html#community" class="btn btn-primary btn-sm">Apply to Community Now</a>
+      <a href="services.html#community" class="btn btn-primary btn-sm">Join the Community</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -49,8 +49,7 @@ const FOOTER_HTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo/rozeta-full-2.svg" alt="rozeta labs" style="height:40px;width:auto;">
-        <div class="footer-brand-name">rozeta labs</div>
+        <img src="assets/logo/rozeta-full-2.svg" alt="rozeta labs" style="height:40px;width:auto;margin-bottom:var(--space-4);">
         <p class="footer-tagline">Where AI stops being confusing and starts being useful.</p>
         <div class="footer-social">
           <a href="#" aria-label="X (Twitter)">𝕏</a>
@@ -89,7 +88,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="services.html#community" class="btn btn-primary">Apply to Community Now</a>
+  <a href="services.html#community" class="btn btn-primary">Join the Community</a>
 </div>
 `;
 
