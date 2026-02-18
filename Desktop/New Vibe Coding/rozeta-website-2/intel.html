@@ -18,10 +18,9 @@
   <div class="container">
     <div class="label reveal">Blog / Intel</div>
     <h1 class="reveal reveal-delay-1">The Signal. Not the Noise.</h1>
-    <p class="reveal reveal-delay-2">Workflow breakdowns, tool evaluations, and operator intelligence — written by people who actually run businesses, for people who actually run businesses.</p>
+    <p class="reveal reveal-delay-2">Workflow breakdowns, tool evaluations, and operator intelligence - written by people who actually run businesses, for people who actually run businesses.</p>
     <div class="page-hero-ctas reveal reveal-delay-3">
-      <a href="contact.html" class="btn btn-primary btn-arrow">Book a Call</a>
-      <a href="services.html#community" class="btn btn-secondary">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary">Join the Community</a>
     </div>
   </div>
 </section>
@@ -30,119 +29,83 @@
 <section class="section">
   <div class="container">
 
-    <!-- Filter bar -->
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">All Posts</button>
-      <button class="filter-btn" data-filter="workflows">Workflows</button>
-      <button class="filter-btn" data-filter="tools">Tool Reviews</button>
-      <button class="filter-btn" data-filter="intel">Industry Intel</button>
-      <button class="filter-btn" data-filter="guides">Operator Guides</button>
-      <button class="filter-btn" data-filter="building">Building in Public</button>
+    <!-- Filter tabs -->
+    <div class="intel-filter reveal">
+      <button class="intel-tab active" data-filter="all">All Posts</button>
+      <button class="intel-tab" data-filter="workflows">Workflows</button>
+      <button class="intel-tab" data-filter="tools">Tool Reviews</button>
+      <button class="intel-tab" data-filter="intel">Industry Intel</button>
+      <button class="intel-tab" data-filter="guides">Operator Guides</button>
+      <button class="intel-tab" data-filter="building">Building in Public</button>
     </div>
 
-    <div class="intel-grid">
+    <div class="intel-list">
 
-      <div class="intel-card reveal reveal-delay-1" data-category="workflows">
-        <div class="intel-card-thumb">⚡</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Workflows</div>
-          <h3>How to Automate Your Entire Lead Follow-Up Without Writing a Single Line of Code</h3>
-          <p>The exact workflow we deployed in a roofing operation that replaced a full-time employee's job — step by step, tool by tool, with real prompts you can copy.</p>
-          <div class="intel-card-meta">
-            <span>Greg Van Horn</span>
-            <span>·</span>
-            <span>12 min read</span>
-            <span>·</span>
-            <span>All levels</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-1" data-category="workflows">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Workflows</span>
+          <span class="intel-read">12 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">How to Automate Your Entire Lead Follow-Up Without Writing a Single Line of Code</h3>
+        <p class="intel-row-excerpt">The exact workflow we deployed in a roofing operation that replaced a full-time employee's job - step by step, tool by tool, with real prompts you can copy.</p>
+        <div class="intel-row-byline">Greg Van Horn <span>·</span> All levels</div>
+      </article>
 
-      <div class="intel-card reveal reveal-delay-2" data-category="tools">
-        <div class="intel-card-thumb">🔍</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Tool Reviews</div>
-          <h3>Claude vs. ChatGPT vs. Gemini: Which AI Actually Wins for Small Business Operators?</h3>
-          <p>Not a technical comparison. A real operator's evaluation: which tool does the most useful work when you're running a business with employees and a deadline.</p>
-          <div class="intel-card-meta">
-            <span>Hunter Lapeyre</span>
-            <span>·</span>
-            <span>8 min read</span>
-            <span>·</span>
-            <span>Owners</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-2" data-category="tools">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Tool Reviews</span>
+          <span class="intel-read">8 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">Claude vs. ChatGPT vs. Gemini: Which AI Actually Wins for Small Business Operators?</h3>
+        <p class="intel-row-excerpt">Not a technical comparison. A real operator's evaluation: which tool does the most useful work when you're running a business with employees and a deadline.</p>
+        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> Owners</div>
+      </article>
 
-      <div class="intel-card reveal reveal-delay-3" data-category="intel">
-        <div class="intel-card-thumb">📊</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Industry Intel</div>
-          <h3>What AI Is Doing to Home Services Revenue in 2026: The Operators Who Figured It Out First</h3>
-          <p>Early adopters in roofing, HVAC, and plumbing are pulling away. Here's the data on what they're doing differently and how large the gap is growing.</p>
-          <div class="intel-card-meta">
-            <span>Greg Van Horn</span>
-            <span>·</span>
-            <span>10 min read</span>
-            <span>·</span>
-            <span>Owners</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-3" data-category="intel">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Industry Intel</span>
+          <span class="intel-read">10 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">What AI Is Doing to Home Services Revenue in 2026: The Operators Who Figured It Out First</h3>
+        <p class="intel-row-excerpt">Early adopters in roofing, HVAC, and plumbing are pulling away. Here's the data on what they're doing differently and how large the gap is growing.</p>
+        <div class="intel-row-byline">Greg Van Horn <span>·</span> Owners</div>
+      </article>
 
-      <div class="intel-card reveal reveal-delay-1" data-category="guides">
-        <div class="intel-card-thumb">🗺️</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Operator Guides</div>
-          <h3>The AI Audit: How to Find Every Task in Your Business That AI Can Handle This Week</h3>
-          <p>A 30-minute exercise that maps every repetitive task in your operation to an AI tool or automation. Bring your calendar and a whiteboard.</p>
-          <div class="intel-card-meta">
-            <span>Hunter Lapeyre</span>
-            <span>·</span>
-            <span>15 min read</span>
-            <span>·</span>
-            <span>Owners + Managers</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-1" data-category="guides">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Operator Guides</span>
+          <span class="intel-read">15 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">The AI Audit: How to Find Every Task in Your Business That AI Can Handle This Week</h3>
+        <p class="intel-row-excerpt">A 30-minute exercise that maps every repetitive task in your operation to an AI tool or automation. Bring your calendar and a whiteboard.</p>
+        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> Owners + Managers</div>
+      </article>
 
-      <div class="intel-card reveal reveal-delay-2" data-category="building">
-        <div class="intel-card-thumb">🏗️</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Building in Public</div>
-          <h3>Building rozeta labs in Public: Month 1 — What We Did, What Worked, What Didn't</h3>
-          <p>Revenue, mistakes, systems we built, members we've served. Full transparency on building an AI enablement company from zero during the most disruptive technology shift in decades.</p>
-          <div class="intel-card-meta">
-            <span>Greg &amp; Hunter</span>
-            <span>·</span>
-            <span>18 min read</span>
-            <span>·</span>
-            <span>Everyone</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-2" data-category="building">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Building in Public</span>
+          <span class="intel-read">18 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">Building rozeta labs in Public: Month 1 - What We Did, What Worked, What Didn't</h3>
+        <p class="intel-row-excerpt">Revenue, mistakes, systems we built, members we've served. Full transparency on building an AI enablement company from zero during the most disruptive technology shift in decades.</p>
+        <div class="intel-row-byline">Greg &amp; Hunter <span>·</span> Everyone</div>
+      </article>
 
-      <div class="intel-card reveal reveal-delay-3" data-category="tools">
-        <div class="intel-card-thumb">🤖</div>
-        <div class="intel-card-body">
-          <div class="intel-category">Tool Reviews</div>
-          <h3>n8n vs. Make vs. Zapier: The Honest Comparison for Business Owners Who Don't Code</h3>
-          <p>We've deployed automations on all three. Here's when to use which, what each one actually costs in time and money, and which one we default to for SMB operators.</p>
-          <div class="intel-card-meta">
-            <span>Hunter Lapeyre</span>
-            <span>·</span>
-            <span>9 min read</span>
-            <span>·</span>
-            <span>All levels</span>
-          </div>
+      <article class="intel-row reveal reveal-delay-3" data-category="tools">
+        <div class="intel-row-meta">
+          <span class="intel-tag">Tool Reviews</span>
+          <span class="intel-read">9 min read</span>
         </div>
-      </div>
+        <h3 class="intel-row-title">n8n vs. Make vs. Zapier: The Honest Comparison for Business Owners Who Don't Code</h3>
+        <p class="intel-row-excerpt">We've deployed automations on all three. Here's when to use which, what each one actually costs in time and money, and which one we default to for SMB operators.</p>
+        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> All levels</div>
+      </article>
 
     </div>
 
     <div style="text-align:center;margin-top:var(--space-12)" class="reveal">
       <p style="font-size:var(--text-body);color:var(--color-text-muted);margin-bottom:var(--space-5)">More posts published weekly. Join the community to get them first.</p>
-      <a href="services.html#community" class="btn btn-secondary btn-arrow">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary">Join the Community</a>
     </div>
 
   </div>
@@ -154,8 +117,7 @@
     <h2 class="reveal">Want to Go Deeper Than a Blog Post?</h2>
     <p class="reveal reveal-delay-1">The community is where the real implementation happens. Live sessions, prompt libraries, operator-to-operator sharing, and two founders who are always in the room.</p>
     <div class="final-cta-buttons reveal reveal-delay-2">
-      <a href="contact.html" class="btn btn-primary btn-lg btn-arrow">Book a Call</a>
-      <a href="services.html#community" class="btn btn-secondary btn-lg">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary btn-lg">Join the Community</a>
     </div>
   </div>
 </section>
