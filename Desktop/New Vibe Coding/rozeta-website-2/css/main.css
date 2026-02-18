@@ -1500,6 +1500,17 @@
   display: inline-block;
 }
 
+.justprice-mo {
+  font-size: 0.28em;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: 0;
+  margin-left: 4px;
+  vertical-align: bottom;
+  margin-bottom: 0.18em;
+  display: inline-block;
+}
+
 .justprice-founding {
   font-size: 17px;
   color: #374151;
