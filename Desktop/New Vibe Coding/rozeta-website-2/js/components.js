@@ -1,5 +1,5 @@
 /* ============================================================
-   rozeta labs — Shared Components
+   rozeta labs - Shared Components
    Nav + Footer injection via JS
    ============================================================ */
 
