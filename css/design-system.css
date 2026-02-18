@@ -217,15 +217,15 @@ p {
 }
 
 .btn-primary {
-  background: var(--color-accent);
+  background: #1a1a1a;
   color: var(--color-white);
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-hover);
+  background: #333333;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(99, 91, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.22);
 }
 
 .btn-primary:active {

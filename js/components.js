@@ -23,7 +23,7 @@ const NAV_HTML = `
       <a href="case-studies.html">Case Studies</a>
     </div>
     <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary btn-sm btn-arrow">Book a Call</a>
+      <a href="services.html#community" class="btn btn-primary btn-sm">Apply to Community Now</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -38,7 +38,7 @@ const NAV_HTML = `
     <a href="podcast.html">Podcast</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="contact.html" class="btn btn-primary btn-arrow">Book a Call</a>
+    <a href="contact.html" class="btn btn-primary">Book a Call</a>
   </div>
 </nav>
 `;
@@ -88,7 +88,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="contact.html" class="btn btn-primary btn-arrow">Book a Call</a>
+  <a href="contact.html" class="btn btn-primary">Book a Call</a>
 </div>
 `;
 
