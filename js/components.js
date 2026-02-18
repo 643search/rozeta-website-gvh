@@ -11,11 +11,16 @@ const NAV_HTML = `
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <a href="about.html" class="nav-dropdown-trigger">About <span class="nav-dropdown-arrow">&#8964;</span></a>
+        <div class="nav-dropdown-menu">
+          <a href="about.html">About Us</a>
+          <a href="intel.html">Blog</a>
+          <a href="podcast.html">Podcast</a>
+        </div>
+      </div>
       <a href="services.html">Services</a>
       <a href="case-studies.html">Case Studies</a>
-      <a href="intel.html">Intel</a>
-      <a href="podcast.html">Podcast</a>
     </div>
     <div class="nav-cta">
       <a href="contact.html" class="btn btn-primary btn-sm btn-arrow">Book a Call</a>
@@ -28,11 +33,11 @@ const NAV_HTML = `
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
+    <a href="about.html">About Us</a>
+    <a href="intel.html">Blog</a>
+    <a href="podcast.html">Podcast</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="intel.html">Intel</a>
-    <a href="podcast.html">Podcast</a>
     <a href="contact.html" class="btn btn-primary btn-arrow">Book a Call</a>
   </div>
 </nav>
@@ -63,7 +68,7 @@ const FOOTER_HTML = `
       <div class="footer-col">
         <h4>Resources</h4>
         <a href="case-studies.html">Case Studies</a>
-        <a href="intel.html">Intel</a>
+        <a href="intel.html">Blog</a>
         <a href="podcast.html">Podcast</a>
       </div>
       <div class="footer-col">
