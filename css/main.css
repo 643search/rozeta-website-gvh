@@ -382,6 +382,7 @@
   font-family: var(--font-display);
   font-weight: 300;
   letter-spacing: -0.01em;
+  color: #000000;
 }
 
 .hero-inner--full .hero-sub {
@@ -591,22 +592,36 @@
 
 /* ── Problem section ─────────────────────────────────────────── */
 .problem-section {
-  background: #12132a;
+  background: transparent;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
+/* White background layer — sits below sphere and card */
 .problem-section::before {
   content: '';
   position: absolute;
-  width: 800px;
-  height: 800px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(60, 66, 138, 0.18) 0%, transparent 65%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  background: #ffffff;
+  z-index: -1;
   pointer-events: none;
+}
+
+/* The big sphere that spans the hero/problem boundary */
+.problem-sphere {
+  position: absolute;
+  top: -180px;
+  left: -175px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 78% 18%, #4a8a7a 0%, transparent 28%),
+    radial-gradient(ellipse at 68% 32%, #d4832a 0%, transparent 30%),
+    radial-gradient(circle at 50% 50%, #c44030 0%, #8a1f2a 45%, #3d1525 100%);
+  box-shadow: inset 20px -20px 80px rgba(34, 55, 59, 0.5);
 }
 
 .problem-card {
