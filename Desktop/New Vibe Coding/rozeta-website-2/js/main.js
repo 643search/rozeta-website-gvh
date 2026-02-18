@@ -43,7 +43,24 @@ function initGSearchAnimation() {
   const aiItems    = mockup.querySelectorAll('.gsearch-ai-list li');
   const aiClosing  = mockup.querySelector('.gsearch-ai-closing');
 
-  const FULL_QUERY = 'what types of businesses benefit most from AI?';
+  const isMobile = window.innerWidth <= 768;
+  const FULL_QUERY = isMobile
+    ? 'What businesses benefit from AI?'
+    : 'what types of businesses benefit most from AI?';
+
+  // Shorten autocomplete suggestions on mobile to match shorter query
+  if (isMobile) {
+    const acItems = mockup.querySelectorAll('.gsearch-ac-item span:last-child');
+    const mobileAc = [
+      ['What businesses benefit from ', '<strong>AI tools</strong>'],
+      ['What businesses benefit from ', '<strong>automation</strong>'],
+      ['What businesses benefit from ', '<strong>AI? guide</strong>'],
+      ['What businesses benefit from ', '<strong>machine learning</strong>'],
+    ];
+    acItems.forEach((el, i) => {
+      if (mobileAc[i]) el.innerHTML = mobileAc[i][0] + mobileAc[i][1];
+    });
+  }
 
   let hasRun = false;
 
