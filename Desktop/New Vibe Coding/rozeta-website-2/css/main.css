@@ -240,9 +240,10 @@
 
 /* ── Footer ──────────────────────────────────────────────────── */
 #footer-placeholder .footer {
-  background: var(--color-text-primary);
-  color: var(--color-white);
+  background: #ffffff;
+  color: var(--color-text-primary);
   padding: var(--space-16) 0 var(--space-8);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-grid {
@@ -255,21 +256,20 @@
 .footer-brand img {
   height: 32px;
   width: auto;
-  margin-bottom: var(--space-4);
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 .footer-brand-name {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-text-primary);
   letter-spacing: -0.02em;
   margin-bottom: var(--space-3);
 }
 
 .footer-tagline {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-6);
 }
@@ -283,24 +283,25 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-secondary);
   transition: all var(--transition-fast);
 }
 
 .footer-social a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
+  background: var(--color-surface-2);
+  color: var(--color-text-primary);
 }
 
 .footer-col h4 {
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-white);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-5);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -309,17 +310,17 @@
 .footer-col a {
   display: block;
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-secondary);
   margin-bottom: var(--space-3);
   transition: color var(--transition-fast);
 }
 
 .footer-col a:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-primary);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border);
   padding-top: var(--space-6);
   display: flex;
   align-items: center;
@@ -330,17 +331,17 @@
 
 .footer-bottom p {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-muted);
 }
 
 .footer-bottom a {
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-secondary);
   font-size: var(--text-sm);
   transition: color var(--transition-fast);
 }
 
 .footer-bottom a:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-primary);
 }
 
 /* Mobile sticky CTA */
@@ -1655,10 +1656,9 @@
 
 /* ── Page heroes (inner pages) ───────────────────────────────── */
 .page-hero {
-  padding: var(--space-24) 0 var(--space-20);
+  padding: var(--space-24) 0 var(--space-10);
   background: #ffffff;
   text-align: center;
-  border-bottom: 1px solid var(--color-border);
   position: relative;
   overflow: hidden;
 }
@@ -1705,12 +1705,13 @@
 }
 
 .page-hero h2 {
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  font-weight: 400;
+  font-family: var(--font-family);
+  font-size: var(--text-body-lg);
+  font-weight: 300;
   color: var(--color-text-secondary);
   max-width: 700px;
   margin: var(--space-3) auto var(--space-8);
+  line-height: var(--leading-relaxed);
 }
 
 .page-hero p {
@@ -1748,10 +1749,12 @@
 .name-origin p {
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
+  text-align: left;
+  margin-bottom: var(--space-6);
 }
 
 .mission-section {
-  background: var(--color-surface);
+  background: #ffffff;
 }
 
 .mission-inner {
@@ -1768,6 +1771,7 @@
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-6);
+  text-align: left;
 }
 
 .story-section {
@@ -1821,22 +1825,22 @@
 }
 
 .vision-section {
-  background: var(--color-text-primary);
-  color: var(--color-white);
+  background: #ffffff;
   text-align: center;
 }
 
 .vision-section h2 {
-  color: var(--color-white);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-8);
 }
 
 .vision-section p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-secondary);
   font-size: var(--text-body-lg);
   max-width: 800px;
   margin: 0 auto var(--space-6);
   line-height: var(--leading-relaxed);
+  text-align: left;
 }
 
 /* ── Services page ───────────────────────────────────────────── */
