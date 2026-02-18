@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/design-system.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/design-system.css?v=5">
+  <link rel="stylesheet" href="css/main.css?v=5">
+  <link rel="stylesheet" href="css/animations.css?v=5">
 </head>
 <body>
 
@@ -357,23 +357,42 @@
       <h2>Simple Pricing. No Contracts. Cancel Anytime.</h2>
     </div>
 
-    <div class="justprice reveal">
-      <div class="justprice-row">
-        <div class="justprice-was">
-          <span class="justprice-dollar-sm">$</span>299
+    <div class="pricing-grid reveal">
+
+      <!-- Individual -->
+      <div class="pricing-card">
+        <div class="pricing-card-label">Individual (monthly)</div>
+        <div class="pricing-card-price-row">
+          <div class="pricing-was">$299</div>
+          <div class="pricing-number"><span class="pricing-dollar">$</span>199</div>
         </div>
-        <div class="justprice-number">
-          <span class="justprice-dollar">$</span>199<span class="justprice-mo">/mo</span>
+        <div class="pricing-founding">Founding member rate - first 35 members only, guaranteed for life.</div>
+        <div class="pricing-spots">After 35 spots, the price goes to $299/mo. No exceptions.</div>
+        <a href="services.html#community" class="btn btn-primary pricing-cta">Apply to Community Now</a>
+      </div>
+
+      <!-- Team -->
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card-label">Team (monthly)</div>
+        <div class="pricing-card-price-row">
+          <div class="pricing-number pricing-number--team"><span class="pricing-dollar">$</span>499</div>
         </div>
+        <div class="pricing-founding">Up to 5 team members - train your whole operation, not just the owner.</div>
+        <div class="pricing-spots">$49/month for any additional team member.</div>
+        <a href="services.html#community" class="btn btn-primary pricing-cta">Apply to Community Now</a>
       </div>
-      <div class="justprice-founding">
-        Founding member rate - first 35 members only, guaranteed for life.
+
+      <!-- Custom -->
+      <div class="pricing-card">
+        <div class="pricing-card-label">Custom Implementation</div>
+        <div class="pricing-card-price-row">
+          <div class="pricing-number pricing-number--custom">Custom</div>
+        </div>
+        <div class="pricing-founding">Done-for-you AI systems built inside your business. Priced by scope.</div>
+        <div class="pricing-spots">Consulting retainer - ongoing build, training, and optimization.</div>
+        <a href="contact.html" class="btn btn-primary pricing-cta">Book a Discovery Call</a>
       </div>
-      <div class="justprice-spots">After 35 spots, the price goes to $299/mo. No exceptions.</div>
-      <a href="services.html#community" class="btn btn-primary justprice-cta">Apply to Community Now</a>
-      <div class="justprice-consulting">
-        Looking for done-for-you AI implementation? Our consulting retainer is custom priced by scope. <a href="contact.html">Book a discovery call.</a>
-      </div>
+
     </div>
   </div>
 </section>
@@ -481,7 +500,7 @@
 <!-- Mobile sticky CTA -->
 <div id="mobile-cta"></div>
 
-<script src="js/components.js"></script>
-<script src="js/main.js"></script>
+<script src="js/components.js?v=5"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
