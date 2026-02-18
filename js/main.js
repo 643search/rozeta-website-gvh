@@ -1,5 +1,5 @@
 /* ============================================================
-   rozeta labs — Main JS
+   rozeta labs - Main JS
    Scroll reveals, accordion, pricing toggle, aurora
    ============================================================ */
 
