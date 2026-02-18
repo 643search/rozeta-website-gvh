@@ -1435,112 +1435,100 @@
   background: var(--color-white);
 }
 
-/* ── Just the Number Pricing ─────────────────────────────────── */
-/* ── Just the Number Pricing ─────────────────────────────────── */
-.justprice {
-  text-align: center;
-  max-width: 680px;
+/* ── 3-Column Pricing Grid ───────────────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
   margin: var(--space-12) auto 0;
+  max-width: 1040px;
+}
+
+.pricing-card {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: var(--space-10) var(--space-8);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-5);
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 
-.justprice-row {
+
+.pricing-card--featured {
+  background: transparent;
+}
+
+.pricing-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+.pricing-card-price-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 32px;
+  gap: 16px;
+  min-height: 96px;
 }
 
-.justprice-was {
-  font-size: clamp(48px, 7vw, 80px);
+.pricing-was {
+  font-size: clamp(28px, 4vw, 44px);
   font-weight: 800;
   color: #d1d5db;
   letter-spacing: -0.04em;
   line-height: 1;
-  position: relative;
-  text-decoration: none;
+  text-decoration: line-through;
+  text-decoration-color: #9c1f22;
+  text-decoration-thickness: 3px;
 }
 
-.justprice-was::after {
-  content: '';
-  position: absolute;
-  left: -4px;
-  right: -4px;
-  top: 50%;
-  height: 4px;
-  background: #9c1f22;
-  border-radius: 2px;
-  transform: translateY(-50%) rotate(-8deg);
-}
-
-.justprice-dollar-sm {
-  font-size: 0.4em;
-  font-weight: 700;
-  vertical-align: top;
-  margin-top: 0.2em;
-  display: inline-block;
-}
-
-.justprice-number {
-  font-size: clamp(80px, 12vw, 140px);
+.pricing-number {
+  font-size: clamp(52px, 6vw, 80px);
   font-weight: 800;
   color: #1a1a1a;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
-.justprice-dollar {
+.pricing-number--team {
+  font-size: clamp(52px, 6vw, 80px);
+}
+
+.pricing-number--custom {
+  font-size: clamp(36px, 4vw, 54px);
+  letter-spacing: -0.02em;
+}
+
+.pricing-dollar {
   font-size: 0.38em;
   font-weight: 700;
   vertical-align: top;
-  margin-top: 0.2em;
+  margin-top: 0.22em;
   display: inline-block;
 }
 
-.justprice-mo {
-  font-size: 0.28em;
-  font-weight: 500;
-  color: #6b7280;
-  letter-spacing: 0;
-  margin-left: 4px;
-  vertical-align: bottom;
-  margin-bottom: 0.18em;
-  display: inline-block;
-}
-
-.justprice-founding {
-  font-size: 17px;
+.pricing-founding {
+  font-size: 15px;
   color: #374151;
   font-weight: 500;
-  max-width: 44ch;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-.justprice-spots {
+.pricing-spots {
   font-size: 13px;
   color: #9ca3af;
   margin-top: -8px;
+  line-height: 1.5;
 }
 
-.justprice-cta {
-  margin-top: var(--space-4);
-}
-
-.justprice-consulting {
-  font-size: 13px;
-  color: #9ca3af;
-  margin-top: var(--space-2);
-  max-width: 48ch;
-  line-height: 1.6;
-}
-
-.justprice-consulting a {
-  color: #6b7280;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.pricing-cta {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
 }
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
@@ -2369,8 +2357,9 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .justprice-number {
-    font-size: clamp(72px, 20vw, 120px);
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
   }
 
   .imsg-mockup { margin: 32px auto 0; }
@@ -2460,4 +2449,29 @@
   }
 
   .subscribe-row { flex-direction: column; align-items: center; }
+
+  /* ── Decorative orb fixes ────────────────────────────────────── */
+  /* Hide the 700px problem sphere — too large to be useful on mobile */
+  .problem-sphere { display: none; }
+
+  /* Shrink hero orbs to small corner accents, fix z-index */
+  .hero-orb--top-right {
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -90px;
+    z-index: 0;
+  }
+  .hero-orb--bottom-right {
+    width: 140px;
+    height: 140px;
+    bottom: -20px;
+    right: -50px;
+  }
+
+  /* Scale down final CTA gradient */
+  .final-cta-section::before {
+    width: 300px;
+    height: 200px;
+  }
 }
