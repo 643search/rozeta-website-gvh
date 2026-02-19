@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initGSearchAnimation();
   initIMsgAnimation();
+  initChatAnimation();
 });
 
 /* ── Scroll Reveal ──────────────────────────────────────────── */
@@ -313,4 +314,78 @@ function initIMsgAnimation() {
     { threshold: 0.25 }
   );
   observer.observe(mockup);
+}
+
+/* ── Chat Conversation Animation ────────────────────────────── */
+function initChatAnimation() {
+  const trigger = document.getElementById('chat-animate-trigger');
+  if (!trigger) return;
+
+  const messages   = Array.from(trigger.querySelectorAll('.chat-msg'));
+  const inputBar   = trigger.querySelector('.chat-input-bar');
+  const inputText  = trigger.querySelector('.chat-input-placeholder');
+
+  // Store original text, clear it so we can type it in
+  const bubbles = messages.map(msg => {
+    const bubble = msg.querySelector('.chat-bubble');
+    const text   = bubble ? bubble.textContent.trim() : '';
+    if (bubble) bubble.textContent = '';
+    return { msg, bubble, text };
+  });
+  const inputOriginal = inputText ? inputText.textContent.trim() : '';
+  if (inputText) inputText.textContent = '';
+
+  let hasRun = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasRun) {
+        hasRun = true;
+        observer.disconnect();
+        setTimeout(runChat, 400);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(trigger);
+
+  function runChat() {
+    typeNext(0);
+  }
+
+  function typeNext(i) {
+    if (i >= bubbles.length) {
+      // All messages done — type the input bar
+      setTimeout(() => {
+        inputBar.classList.add('chat-visible');
+        if (inputText) typeBubble(inputOriginal, inputText, 28, null);
+      }, 400);
+      return;
+    }
+
+    const { msg, bubble, text } = bubbles[i];
+    msg.classList.add('chat-visible');
+
+    // Pause before typing (simulates reading/thinking)
+    const thinkDelay = i === 0 ? 0 : 350;
+    setTimeout(() => {
+      typeBubble(text, bubble, 22, () => {
+        setTimeout(() => typeNext(i + 1), 500);
+      });
+    }, thinkDelay);
+  }
+
+  function typeBubble(text, el, speed, callback) {
+    let i = 0;
+    function tick() {
+      if (i < text.length) {
+        el.textContent += text[i];
+        i++;
+        setTimeout(tick, speed + Math.random() * 18 - 6);
+      } else if (callback) {
+        callback();
+      }
+    }
+    tick();
+  }
 }
