@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(245, 240, 232, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -240,7 +240,7 @@
 
 /* ── Footer ──────────────────────────────────────────────────── */
 #footer-placeholder .footer {
-  background: #ffffff;
+  background: var(--color-bg);
   color: var(--color-text-primary);
   padding: var(--space-16) 0 var(--space-8);
   border-top: 1px solid var(--color-border);
@@ -380,7 +380,7 @@
   padding: var(--space-8) 0 var(--space-16);
   position: relative;
   overflow: visible;
-  background: #ffffff;
+  background: var(--color-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -694,7 +694,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #ffffff;
+  background: var(--color-bg);
   z-index: -1;
   pointer-events: none;
 }
@@ -1440,7 +1440,7 @@
 
 /* ── Pricing ─────────────────────────────────────────────────── */
 .pricing-section {
-  background: var(--color-white);
+  background: var(--color-bg);
 }
 
 /* ── 3-Column Pricing Grid ───────────────────────────────────── */
@@ -1657,7 +1657,7 @@
 /* ── Page heroes (inner pages) ───────────────────────────────── */
 .page-hero {
   padding: var(--space-24) 0 var(--space-10);
-  background: #ffffff;
+  background: var(--color-bg);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1754,7 +1754,7 @@
 }
 
 .mission-section {
-  background: #ffffff;
+  background: var(--color-bg);
 }
 
 .mission-inner {
@@ -1825,7 +1825,7 @@
 }
 
 .vision-section {
-  background: #ffffff;
+  background: var(--color-bg);
   text-align: center;
 }
 
