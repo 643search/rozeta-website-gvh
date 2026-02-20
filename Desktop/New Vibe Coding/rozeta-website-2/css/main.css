@@ -1003,7 +1003,7 @@
   border-radius: 24px;
   padding: 10px 20px;
   box-shadow: 0 1px 6px rgba(32,33,36,0.10);
-  background: #fff;
+  background: transparent;
   transition: border-radius 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -1064,11 +1064,11 @@
   top: calc(100% - 1px);
   left: 0;
   right: 0;
-  background: #fff;
+  background: transparent;
   border: 1px solid #dfe1e5;
   border-top: none;
   border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 10px rgba(32,33,36,0.14);
+  box-shadow: none;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
@@ -1138,7 +1138,7 @@
 
 .gsearch-ai-body {
   padding: 18px 22px 20px;
-  background: #fff;
+  background: transparent;
 }
 
 .gsearch-ai-intro {
