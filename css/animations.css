@@ -1,0 +1,238 @@
+/* ============================================================
+   rozeta labs — Animations
+   Scroll reveals, aurora shimmer, hover effects
+   ============================================================ */
+
+/* ── Aurora / Hero gradient ─────────────────────────────────── */
+@keyframes aurora-shift {
+  0%   { transform: scale(1) rotate(0deg); opacity: 0.75; }
+  33%  { transform: scale(1.08) rotate(3deg); opacity: 0.85; }
+  66%  { transform: scale(0.96) rotate(-2deg); opacity: 0.78; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.75; }
+}
+
+@keyframes aurora-float {
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-20px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.aurora-blob {
+  animation: aurora-float 8s ease-in-out infinite, aurora-shift 12s ease-in-out infinite;
+}
+
+/* ── Scroll reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── Gradient text ──────────────────────────────────────────── */
+.gradient-text {
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Number counter ─────────────────────────────────────────── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+  animation: count-up 0.5s ease forwards;
+}
+
+/* ── Shimmer loading effect ─────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-border) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Pulse dot (live indicator) ─────────────────────────────── */
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.4); }
+  70%  { box-shadow: 0 0 0 8px rgba(39, 174, 96, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: pulse-dot 2s infinite;
+}
+
+/* ── Ticker strip ───────────────────────────────────────────── */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Card hover glow ────────────────────────────────────────── */
+.card-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius-lg) + 1px);
+  background: var(--gradient-aurora);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: -1;
+}
+
+.card-glow:hover::before {
+  opacity: 0.15;
+}
+
+/* ── Step line connector ────────────────────────────────────── */
+@keyframes line-draw {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ── Nav transition ─────────────────────────────────────────── */
+.nav-scrolled {
+  background: rgba(240, 236, 228, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ── Accordion ──────────────────────────────────────────────── */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.accordion-content.open {
+  max-height: 400px;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/* ── Pricing toggle ─────────────────────────────────────────── */
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-bottom: var(--space-10);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-base);
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: var(--color-accent);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+/* ── Mobile menu ────────────────────────────────────────────── */
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu.open {
+  animation: slide-down 0.25s ease forwards;
+}
+
+/* ── Hero floating card ─────────────────────────────────────── */
+@keyframes float-card {
+  0%   { transform: translateY(0px) rotate(-1deg); }
+  50%  { transform: translateY(-8px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(-1deg); }
+}
+
+@keyframes float-card-2 {
+  0%   { transform: translateY(0px) rotate(2deg); }
+  50%  { transform: translateY(-12px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(2deg); }
+}
+
+.float-card-1 { animation: float-card 6s ease-in-out infinite; }
+.float-card-2 { animation: float-card-2 8s ease-in-out infinite 1s; }
