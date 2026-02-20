@@ -1695,12 +1695,6 @@
   z-index: 1;
 }
 
-/* Services page hero — left orb anchored to bottom-left */
-.page-hero-orb--left {
-  bottom: -280px;
-  top: auto;
-}
-
 .page-hero h1 {
   font-family: var(--font-display);
   font-weight: 400;
@@ -2523,9 +2517,6 @@
     height: 140px;
     bottom: -20px;
     right: -80px;
-  }
-  .page-hero-orb--left {
-    display: none;
   }
 
   /* Scale down final CTA gradient */
