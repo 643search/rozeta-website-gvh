@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading… - rozeta labs</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="css/design-system.css?v=7">
+  <link rel="stylesheet" href="css/main.css?v=8">
+  <link rel="stylesheet" href="css/animations.css?v=7">
+</head>
+<body>
+
+<div id="nav-placeholder" style="position:sticky;top:0;z-index:1000;"></div>
+
+<section class="section" style="padding-top:var(--space-12);">
+  <div class="container">
+    <a href="intel.html" class="post-breadcrumb">← Back to Intel</a>
+    <div id="post-loading" style="padding:var(--space-16) 0;text-align:center;color:var(--color-text-muted);">Loading…</div>
+    <article id="post-content" class="post-article" style="display:none;"></article>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta-section" style="margin-top:var(--space-16);">
+  <div class="container">
+    <h2>Want to Go Deeper Than a Blog Post?</h2>
+    <p>The community is where the real implementation happens. Live sessions, prompt libraries, operator-to-operator sharing, and two founders who are always in the room.</p>
+    <div class="final-cta-buttons">
+      <a href="services.html#community" class="btn btn-primary btn-lg">Join the Community</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="mobile-cta"></div>
+
+<script src="js/components.js?v=7"></script>
+<script src="js/main.js?v=7"></script>
+<script>
+(function () {
+  var PROJECT_ID = '6f60xo5c';
+  var DATASET = 'production';
+  var CDN = 'https://' + PROJECT_ID + '.apicdn.sanity.io/v2024-01-01/data/query/' + DATASET;
+
+  var CATEGORY_LABELS = {
+    'ai-tools': 'AI Tools',
+    'automation': 'Automation',
+    'business-strategy': 'Business Strategy',
+    'behind-the-scenes': 'Behind the Scenes'
+  };
+
+  // Get slug from URL params
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug');
+
+  if (!slug) {
+    document.getElementById('post-loading').textContent = 'No post specified.';
+    return;
+  }
+
+  // --- Portable Text → HTML renderer ---
+  function escape(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function ptToHtml(blocks) {
+    if (!blocks || !blocks.length) return '';
+
+    // Collect mark definitions (links, etc.)
+    var markDefs = {};
+    blocks.forEach(function (block) {
+      if (block.markDefs) {
+        block.markDefs.forEach(function (def) { markDefs[def._key] = def; });
+      }
+    });
+
+    return blocks.map(function (block) {
+      if (block._type === 'image') return ''; // no URL without asset pipeline
+      if (block._type !== 'block') return '';
+
+      var style = block.style || 'normal';
+      var innerHtml = (block.children || []).map(function (span) {
+        var text = escape(span.text || '');
+        var marks = span.marks || [];
+        marks.forEach(function (mark) {
+          if (mark === 'strong') { text = '<strong>' + text + '</strong>'; }
+          else if (mark === 'em') { text = '<em>' + text + '</em>'; }
+          else if (mark === 'code') { text = '<code>' + text + '</code>'; }
+          else if (mark === 'underline') { text = '<u>' + text + '</u>'; }
+          else if (mark === 'strike-through' || mark === 'strike') { text = '<s>' + text + '</s>'; }
+          else if (markDefs[mark]) {
+            var def = markDefs[mark];
+            if (def._type === 'link') {
+              var ext = def.href && def.href.match(/^https?:\/\//) ? ' target="_blank" rel="noopener"' : '';
+              text = '<a href="' + escape(def.href) + '"' + ext + '>' + text + '</a>';
+            }
+          }
+        });
+        return text;
+      }).join('');
+
+      if (style === 'h2') return '<h2>' + innerHtml + '</h2>';
+      if (style === 'h3') return '<h3>' + innerHtml + '</h3>';
+      if (style === 'h4') return '<h4>' + innerHtml + '</h4>';
+      if (style === 'blockquote') return '<blockquote>' + innerHtml + '</blockquote>';
+      if (!innerHtml.trim()) return '';
+      return '<p>' + innerHtml + '</p>';
+    }).join('\n');
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    var d = new Date(dateStr);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  // Fetch the post
+  var query = encodeURIComponent(
+    '*[_type == "post" && slug.current == $slug][0] { _id, title, slug, publishedAt, category, readTime, excerpt, body, author->{ name, role, bio } }'
+  );
+  var slugParam = encodeURIComponent(JSON.stringify(slug));
+
+  fetch(CDN + '?query=' + query + '&%24slug=' + slugParam)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var post = data.result;
+
+      if (!post) {
+        document.getElementById('post-loading').textContent = 'Post not found.';
+        return;
+      }
+
+      // Update page title and meta
+      document.title = (post.title || 'Post') + ' - rozeta labs';
+      var metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && post.excerpt) metaDesc.setAttribute('content', post.excerpt);
+
+      var category = CATEGORY_LABELS[post.category] || (post.category || '');
+      var authorName = (post.author && post.author.name) ? post.author.name : '';
+      var authorRole = (post.author && post.author.role) ? post.author.role : 'Co-Founder, Rozeta Labs';
+      var bodyHtml = ptToHtml(post.body || []);
+
+      var html =
+        '<div class="post-header">' +
+          (category ? '<div class="intel-tag" style="margin-bottom:var(--space-5);">' + category + '</div>' : '') +
+          '<h1>' + escape(post.title || '') + '</h1>' +
+          '<div class="post-meta">' +
+            (authorName ? '<span>' + escape(authorName) + '</span>' : '') +
+            (post.publishedAt ? '<span class="post-meta-dot">·</span><span>' + formatDate(post.publishedAt) + '</span>' : '') +
+            (post.readTime ? '<span class="post-meta-dot">·</span><span>' + post.readTime + ' min read</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="post-body">' + bodyHtml + '</div>' +
+        (authorName ? (
+          '<div class="post-author-bio">' +
+            '<div class="post-author-bio-text">' +
+              '<strong>' + escape(authorName) + '</strong>' +
+              '<span>' + escape(authorRole) + '</span>' +
+            '</div>' +
+          '</div>'
+        ) : '');
+
+      var content = document.getElementById('post-content');
+      content.innerHTML = html;
+      content.style.display = '';
+      document.getElementById('post-loading').style.display = 'none';
+    })
+    .catch(function () {
+      document.getElementById('post-loading').textContent = 'Could not load post. Try refreshing.';
+    });
+})();
+</script>
+</body>
+</html>
