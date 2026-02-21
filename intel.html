@@ -20,7 +20,7 @@
     <h1 class="reveal reveal-delay-1">The Signal. <span style="color:var(--color-accent)">Not the Noise.</span></h1>
     <p class="reveal reveal-delay-2">Workflow breakdowns, tool evaluations, and operator intelligence - written by people who actually run businesses, for people who actually run businesses.</p>
     <div class="page-hero-ctas reveal reveal-delay-3">
-      <a href="services.html#community" class="btn btn-primary">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary">Apply for Membership</a>
     </div>
   </div>
 </section>
@@ -43,7 +43,7 @@
 
     <div style="text-align:center;margin-top:var(--space-12)" class="reveal">
       <p style="font-size:var(--text-body);color:var(--color-text-muted);margin-bottom:var(--space-5)">More posts published weekly. Join the community to get them first.</p>
-      <a href="services.html#community" class="btn btn-primary">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary">Apply for Membership</a>
     </div>
 
   </div>
@@ -55,7 +55,7 @@
     <h2 class="reveal">Want to Go Deeper Than a Blog Post?</h2>
     <p class="reveal reveal-delay-1">The community is where the real implementation happens. Live sessions, prompt libraries, operator-to-operator sharing, and two founders who are always in the room.</p>
     <div class="final-cta-buttons reveal reveal-delay-2">
-      <a href="services.html#community" class="btn btn-primary btn-lg">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary btn-lg">Apply for Membership</a>
     </div>
   </div>
 </section>
@@ -63,13 +63,13 @@
 <div id="footer-placeholder"></div>
 <div id="mobile-cta"></div>
 
-<script src="js/components.js?v=7"></script>
+<script src="js/components.js?v=9"></script>
 <script src="js/main.js?v=7"></script>
 <script>
 (function () {
   var PROJECT_ID = '6f60xo5c';
   var DATASET = 'production';
-  var CDN = 'https://' + PROJECT_ID + '.apicdn.sanity.io/v2024-01-01/data/query/' + DATASET;
+  var CDN = 'https://' + PROJECT_ID + '.api.sanity.io/v2024-01-01/data/query/' + DATASET;
 
   var CATEGORY_LABELS = {
     'ai-tools': 'AI Tools',
@@ -103,8 +103,7 @@
       var label = CATEGORY_LABELS[post.category] || (post.category || '');
       var authorName = (post.author && post.author.name) ? post.author.name : '';
       var slug = (post.slug && post.slug.current) ? post.slug.current : '';
-      var delayClass = i > 0 ? ' reveal-delay-' + Math.min(i, 3) : '';
-      return '<article class="intel-row reveal' + delayClass + '" data-category="' + (post.category || '') + '">' +
+      return '<article class="intel-row" data-category="' + (post.category || '') + '">' +
         '<a href="post.html?slug=' + encodeURIComponent(slug) + '" style="display:block;text-decoration:none;color:inherit;">' +
         '<div class="intel-row-meta">' +
         '<span class="intel-tag">' + label + '</span>' +
@@ -135,8 +134,8 @@
         });
       });
     })
-    .catch(function () {
-      document.getElementById('intel-loading').textContent = 'Could not load posts. Try refreshing.';
+    .catch(function (err) {
+      document.getElementById('intel-loading').textContent = 'Could not load posts. Error: ' + (err && err.message ? err.message : String(err));
     });
 })();
 </script>
