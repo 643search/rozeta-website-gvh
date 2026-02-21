@@ -7,7 +7,7 @@ const NAV_HTML = `
 <nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo/rozeta-full-2.svg" alt="rozeta labs" style="height:40px;width:auto;">
+      <img src="assets/logo/rozeta-wordmark.svg" alt="rozeta labs" style="height:32px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -24,7 +24,7 @@ const NAV_HTML = `
       <a href="case-studies.html">Case Studies</a>
     </div>
     <div class="nav-cta">
-      <a href="services.html#community" class="btn btn-primary btn-sm">Join the Community</a>
+      <a href="services.html#community" class="btn btn-primary btn-sm">Apply for Membership</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -49,7 +49,7 @@ const FOOTER_HTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo/rozeta-full-2.svg" alt="rozeta labs" style="height:40px;width:auto;margin-bottom:var(--space-4);">
+        <img src="assets/logo/rozeta-wordmark.svg" alt="rozeta labs" style="height:32px;width:auto;margin-bottom:var(--space-4);">
         <p class="footer-tagline">Where AI stops being confusing and starts being useful.</p>
         <div class="footer-social">
           <a href="#" aria-label="X (Twitter)">
@@ -82,7 +82,7 @@ const FOOTER_HTML = `
       <div class="footer-col">
         <h4>Get Started</h4>
         <a href="contact.html">Book a Call</a>
-        <a href="services.html#community">Join the Community</a>
+        <a href="services.html#community">Apply for Membership</a>
         <a href="mailto:hey@rozetalabs.com">hey@rozetalabs.com</a>
       </div>
     </div>
@@ -96,7 +96,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="services.html#community" class="btn btn-primary">Join the Community</a>
+  <a href="services.html#community" class="btn btn-primary">Apply for Membership</a>
 </div>
 `;
 
@@ -186,3 +186,150 @@ if (document.readyState === 'loading') {
 } else {
   injectComponents();
 }
+
+/* ============================================================
+   Rozeta Labs AI Chatbot — Custom Widget
+   ============================================================ */
+(function initChatbot() {
+  var API_HOST  = 'https://docsgpt-production.up.railway.app';
+  var API_KEY   = 'a11e71a8-3ceb-4c69-9b4d-1bacaec3a972';
+  var PROMPT_ID = '69991ea3f93308f6a295758e';
+
+  /* ── Styles ── */
+  var style = document.createElement('style');
+  style.textContent = [
+    '#rl-chat-bubble{position:fixed;bottom:24px;right:24px;z-index:9999;height:44px;padding:0 20px;border-radius:22px;background:#9c1f22;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(156,31,34,.35);transition:transform .2s,box-shadow .2s;font-family:inherit;font-size:14px;font-weight:600;color:#fff;white-space:nowrap}',
+    '#rl-chat-bubble:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(156,31,34,.45);background:#7a1719}',
+    '#rl-chat-bubble svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}',
+    '#rl-chat-panel{position:fixed;bottom:80px;right:24px;z-index:9999;width:360px;max-width:calc(100vw - 32px);height:320px;max-height:calc(100vh - 120px);background:#f5f0e8;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.15);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px) scale(.97);pointer-events:none;transition:opacity .22s,transform .22s}',
+    '#rl-chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}',
+    '#rl-chat-close{position:absolute;top:10px;right:12px;background:none;border:none;color:#22373b;cursor:pointer;padding:4px;opacity:.4;font-size:20px;line-height:1;z-index:1}',
+    '#rl-chat-close:hover{opacity:.8}',
+    '#rl-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5}',
+    '.rl-msg{max-width:82%;padding:10px 13px;border-radius:12px;word-break:break-word}',
+    '.rl-msg.bot{background:#fff;color:#22373b;align-self:flex-start;border-bottom-left-radius:3px;box-shadow:0 1px 4px rgba(0,0,0,.06)}',
+    '.rl-msg.user{background:#22373b;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}',
+    '.rl-typing{display:flex;gap:4px;padding:12px 14px;background:#fff;border-radius:12px;border-bottom-left-radius:3px;align-self:flex-start;box-shadow:0 1px 4px rgba(0,0,0,.06)}',
+    '.rl-typing span{width:7px;height:7px;background:#c7c8c8;border-radius:50%;animation:rl-bounce 1.2s infinite}',
+    '.rl-typing span:nth-child(2){animation-delay:.2s}.rl-typing span:nth-child(3){animation-delay:.4s}',
+    '@keyframes rl-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}',
+    '#rl-chat-footer{padding:10px 12px;border-top:1px solid #c7c8c8;background:#f5f0e8;display:flex;gap:8px;flex-shrink:0}',
+    '#rl-chat-input{flex:1;border:1px solid #c7c8c8;border-radius:8px;padding:9px 12px;font-size:14px;outline:none;font-family:inherit;resize:none;height:40px;overflow:hidden;background:#fff;color:#22373b}',
+    '#rl-chat-input:focus{border-color:#22373b}',
+    '#rl-chat-send{background:#22373b;border:none;border-radius:8px;color:#fff;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0}',
+    '#rl-chat-send:hover{background:#1a1a1a}',
+    '#rl-chat-send svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}',
+    '@media(max-width:768px){#rl-chat-bubble{bottom:84px;right:16px}#rl-chat-panel{bottom:140px;right:16px;left:16px;width:auto}}',
+  ].join('');
+  document.head.appendChild(style);
+
+  /* ── HTML ── */
+  var panel = document.createElement('div');
+  panel.id = 'rl-chat-panel';
+  panel.innerHTML = [
+    '<button id="rl-chat-close" aria-label="Close">&times;</button>',
+    '<div id="rl-chat-messages">',
+    '  <div class="rl-msg bot">Hey! Welcome to Rozeta Labs 👋 I\'m Rozie. How can I help you?</div>',
+    '</div>',
+    '<div id="rl-chat-footer">',
+    '  <input id="rl-chat-input" type="text" placeholder="Ask a question…" autocomplete="off" />',
+    '  <button id="rl-chat-send" aria-label="Send">',
+    '    <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>',
+    '  </button>',
+    '</div>',
+  ].join('');
+
+  var bubble = document.createElement('button');
+  bubble.id = 'rl-chat-bubble';
+  bubble.setAttribute('aria-label', 'Chat with Rozie');
+  bubble.innerHTML = '<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat with Rozie';
+
+  document.body.appendChild(panel);
+  document.body.appendChild(bubble);
+
+  /* ── Logic ── */
+  var msgs    = panel.querySelector('#rl-chat-messages');
+  var input   = panel.querySelector('#rl-chat-input');
+  var history = [];
+  var busy    = false;
+
+  function openPanel()  { panel.classList.add('open'); input.focus(); }
+  function closePanel() { panel.classList.remove('open'); }
+  window.rlOpenChat = openPanel;
+
+  bubble.addEventListener('click', function() {
+    panel.classList.contains('open') ? closePanel() : openPanel();
+  });
+  panel.querySelector('#rl-chat-close').addEventListener('click', closePanel);
+
+  function addMsg(text, role) {
+    var el = document.createElement('div');
+    el.className = 'rl-msg ' + role;
+    el.textContent = text;
+    msgs.appendChild(el);
+    msgs.scrollTop = msgs.scrollHeight;
+    return el;
+  }
+
+  function showTyping() {
+    var el = document.createElement('div');
+    el.className = 'rl-typing';
+    el.innerHTML = '<span></span><span></span><span></span>';
+    msgs.appendChild(el);
+    msgs.scrollTop = msgs.scrollHeight;
+    return el;
+  }
+
+  function send() {
+    var q = input.value.trim();
+    if (!q || busy) return;
+    busy = true;
+    input.value = '';
+    addMsg(q, 'user');
+    var typing = showTyping();
+
+    var histStr = JSON.stringify(history.map(function(h) {
+      return [h.prompt, h.response];
+    }));
+
+    fetch(API_HOST + '/stream', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + API_KEY },
+      body: JSON.stringify({ question: q, history: histStr, prompt_id: PROMPT_ID }),
+    }).then(function(res) {
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var answer = '';
+      typing.remove();
+      var botEl = addMsg('', 'bot');
+
+      function read() {
+        reader.read().then(function(d) {
+          if (d.done) {
+            history.push({ prompt: q, response: answer });
+            if (history.length > 20) history.shift();
+            busy = false;
+            return;
+          }
+          var chunk = decoder.decode(d.value, { stream: true });
+          chunk.split('\n').forEach(function(line) {
+            if (!line.startsWith('data:')) return;
+            try {
+              var obj = JSON.parse(line.slice(5));
+              if (obj.type === 'answer') { answer += obj.answer; botEl.textContent = answer; msgs.scrollTop = msgs.scrollHeight; }
+            } catch(e) {}
+          });
+          read();
+        });
+      }
+      read();
+    }).catch(function() {
+      typing.remove();
+      addMsg('Sorry, something went wrong. Please try again.', 'bot');
+      busy = false;
+    });
+  }
+
+  panel.querySelector('#rl-chat-send').addEventListener('click', send);
+  input.addEventListener('keydown', function(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
+}());
