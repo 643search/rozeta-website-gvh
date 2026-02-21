@@ -6,7 +6,7 @@
   <title>Intel - rozeta labs</title>
   <meta name="description" content="Workflow breakdowns, tool evaluations, and operator intelligence - written by people who actually run businesses, for people who actually run businesses.">
   <link rel="stylesheet" href="css/design-system.css?v=7">
-  <link rel="stylesheet" href="css/main.css?v=7">
+  <link rel="stylesheet" href="css/main.css?v=8">
   <link rel="stylesheet" href="css/animations.css?v=7">
 </head>
 <body>
@@ -32,76 +32,14 @@
     <!-- Filter tabs -->
     <div class="intel-filter reveal">
       <button class="intel-tab active" data-filter="all">All Posts</button>
-      <button class="intel-tab" data-filter="workflows">Workflows</button>
-      <button class="intel-tab" data-filter="tools">Tool Reviews</button>
-      <button class="intel-tab" data-filter="intel">Industry Intel</button>
-      <button class="intel-tab" data-filter="guides">Operator Guides</button>
-      <button class="intel-tab" data-filter="building">Building in Public</button>
+      <button class="intel-tab" data-filter="ai-tools">AI Tools</button>
+      <button class="intel-tab" data-filter="automation">Automation</button>
+      <button class="intel-tab" data-filter="business-strategy">Business Strategy</button>
+      <button class="intel-tab" data-filter="behind-the-scenes">Behind the Scenes</button>
     </div>
 
-    <div class="intel-list">
-
-      <article class="intel-row reveal reveal-delay-1" data-category="workflows">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Workflows</span>
-          <span class="intel-read">12 min read</span>
-        </div>
-        <h3 class="intel-row-title">How to Automate Your Entire Lead Follow-Up Without Writing a Single Line of Code</h3>
-        <p class="intel-row-excerpt">The exact workflow we deployed in a roofing operation that replaced a full-time employee's job - step by step, tool by tool, with real prompts you can copy.</p>
-        <div class="intel-row-byline">Greg Van Horn <span>·</span> All levels</div>
-      </article>
-
-      <article class="intel-row reveal reveal-delay-2" data-category="tools">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Tool Reviews</span>
-          <span class="intel-read">8 min read</span>
-        </div>
-        <h3 class="intel-row-title">Claude vs. ChatGPT vs. Gemini: Which AI Actually Wins for Small Business Operators?</h3>
-        <p class="intel-row-excerpt">Not a technical comparison. A real operator's evaluation: which tool does the most useful work when you're running a business with employees and a deadline.</p>
-        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> Owners</div>
-      </article>
-
-      <article class="intel-row reveal reveal-delay-3" data-category="intel">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Industry Intel</span>
-          <span class="intel-read">10 min read</span>
-        </div>
-        <h3 class="intel-row-title">What AI Is Doing to Home Services Revenue in 2026: The Operators Who Figured It Out First</h3>
-        <p class="intel-row-excerpt">Early adopters in roofing, HVAC, and plumbing are pulling away. Here's the data on what they're doing differently and how large the gap is growing.</p>
-        <div class="intel-row-byline">Greg Van Horn <span>·</span> Owners</div>
-      </article>
-
-      <article class="intel-row reveal reveal-delay-1" data-category="guides">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Operator Guides</span>
-          <span class="intel-read">15 min read</span>
-        </div>
-        <h3 class="intel-row-title">The AI Audit: How to Find Every Task in Your Business That AI Can Handle This Week</h3>
-        <p class="intel-row-excerpt">A 30-minute exercise that maps every repetitive task in your operation to an AI tool or automation. Bring your calendar and a whiteboard.</p>
-        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> Owners + Managers</div>
-      </article>
-
-      <article class="intel-row reveal reveal-delay-2" data-category="building">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Building in Public</span>
-          <span class="intel-read">18 min read</span>
-        </div>
-        <h3 class="intel-row-title">Building Rozeta Labs in Public: Month 1 - What We Did, What Worked, What Didn't</h3>
-        <p class="intel-row-excerpt">Revenue, mistakes, systems we built, members we've served. Full transparency on building an AI enablement company from zero during the most disruptive technology shift in decades.</p>
-        <div class="intel-row-byline">Greg &amp; Hunter <span>·</span> Everyone</div>
-      </article>
-
-      <article class="intel-row reveal reveal-delay-3" data-category="tools">
-        <div class="intel-row-meta">
-          <span class="intel-tag">Tool Reviews</span>
-          <span class="intel-read">9 min read</span>
-        </div>
-        <h3 class="intel-row-title">n8n vs. Make vs. Zapier: The Honest Comparison for Business Owners Who Don't Code</h3>
-        <p class="intel-row-excerpt">We've deployed automations on all three. Here's when to use which, what each one actually costs in time and money, and which one we default to for SMB operators.</p>
-        <div class="intel-row-byline">Hunter Lapeyre <span>·</span> All levels</div>
-      </article>
-
-    </div>
+    <div id="intel-loading" style="padding:var(--space-12) 0;text-align:center;color:var(--color-text-muted);font-size:var(--text-body);">Loading posts…</div>
+    <div id="intel-list" class="intel-list" style="display:none;"></div>
 
     <div style="text-align:center;margin-top:var(--space-12)" class="reveal">
       <p style="font-size:var(--text-body);color:var(--color-text-muted);margin-bottom:var(--space-5)">More posts published weekly. Join the community to get them first.</p>
@@ -127,5 +65,80 @@
 
 <script src="js/components.js?v=7"></script>
 <script src="js/main.js?v=7"></script>
+<script>
+(function () {
+  var PROJECT_ID = '6f60xo5c';
+  var DATASET = 'production';
+  var CDN = 'https://' + PROJECT_ID + '.apicdn.sanity.io/v2024-01-01/data/query/' + DATASET;
+
+  var CATEGORY_LABELS = {
+    'ai-tools': 'AI Tools',
+    'automation': 'Automation',
+    'business-strategy': 'Business Strategy',
+    'behind-the-scenes': 'Behind the Scenes'
+  };
+
+  var query = encodeURIComponent(
+    '*[_type == "post"] | order(publishedAt desc) { _id, title, slug, publishedAt, category, readTime, excerpt, author->{ name } }'
+  );
+
+  var allPosts = [];
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    var d = new Date(dateStr);
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  }
+
+  function renderPosts(filter) {
+    var list = document.getElementById('intel-list');
+    var filtered = filter === 'all' ? allPosts : allPosts.filter(function (p) { return p.category === filter; });
+
+    if (filtered.length === 0) {
+      list.innerHTML = '<p style="padding:var(--space-8) 0;color:var(--color-text-muted);">No posts in this category yet.</p>';
+      return;
+    }
+
+    list.innerHTML = filtered.map(function (post, i) {
+      var label = CATEGORY_LABELS[post.category] || (post.category || '');
+      var authorName = (post.author && post.author.name) ? post.author.name : '';
+      var slug = (post.slug && post.slug.current) ? post.slug.current : '';
+      var delayClass = i > 0 ? ' reveal-delay-' + Math.min(i, 3) : '';
+      return '<article class="intel-row reveal' + delayClass + '" data-category="' + (post.category || '') + '">' +
+        '<a href="post.html?slug=' + encodeURIComponent(slug) + '" style="display:block;text-decoration:none;color:inherit;">' +
+        '<div class="intel-row-meta">' +
+        '<span class="intel-tag">' + label + '</span>' +
+        (post.readTime ? '<span class="intel-read">' + post.readTime + ' min read</span>' : '') +
+        '</div>' +
+        '<h3 class="intel-row-title">' + (post.title || '') + '</h3>' +
+        '<p class="intel-row-excerpt">' + (post.excerpt || '') + '</p>' +
+        '<div class="intel-row-byline">' + authorName + (post.publishedAt ? '<span> · </span>' + formatDate(post.publishedAt) : '') + '</div>' +
+        '</a>' +
+        '</article>';
+    }).join('');
+  }
+
+  fetch(CDN + '?query=' + query)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      allPosts = data.result || [];
+      document.getElementById('intel-loading').style.display = 'none';
+      var list = document.getElementById('intel-list');
+      list.style.display = '';
+      renderPosts('all');
+
+      document.querySelectorAll('.intel-tab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.intel-tab').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          renderPosts(btn.dataset.filter);
+        });
+      });
+    })
+    .catch(function () {
+      document.getElementById('intel-loading').textContent = 'Could not load posts. Try refreshing.';
+    });
+})();
+</script>
 </body>
 </html>
