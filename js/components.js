@@ -24,7 +24,7 @@ const NAV_HTML = `
       <a href="case-studies.html">Case Studies</a>
     </div>
     <div class="nav-cta">
-      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary btn-sm">Apply for Membership</a>
+      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary btn-sm">Apply for Membership</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -39,7 +39,7 @@ const NAV_HTML = `
     <a href="podcast.html">Podcast</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary">Apply for Membership</a>
+    <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
   </div>
 </nav>
 `;
@@ -81,8 +81,8 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h4>Get Started</h4>
-        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9">Apply for Membership</a>
-        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9">Apply for Membership</a>
+        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo">Apply for Membership</a>
+        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo">Apply for Membership</a>
         <a href="mailto:hey@rozetalabs.com">hey@rozetalabs.com</a>
       </div>
     </div>
@@ -96,7 +96,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary">Apply for Membership</a>
+  <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
 </div>
 `;
 
