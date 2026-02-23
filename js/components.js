@@ -7,7 +7,7 @@ const NAV_HTML = `
 <nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo/rozeta-labs-01.svg" alt="rozeta labs" style="height:48px;width:auto;">
+      <img src="assets/logo/rozeta-labs-horizontal-v2.svg" alt="rozeta labs" style="height:48px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -24,7 +24,7 @@ const NAV_HTML = `
       <a href="case-studies.html">Case Studies</a>
     </div>
     <div class="nav-cta">
-      <a href="services.html#community" class="btn btn-primary btn-sm">Apply for Membership</a>
+      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary btn-sm">Apply for Membership</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -39,7 +39,7 @@ const NAV_HTML = `
     <a href="podcast.html">Podcast</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="contact.html" class="btn btn-primary">Book a Call</a>
+    <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary">Apply for Membership</a>
   </div>
 </nav>
 `;
@@ -49,7 +49,7 @@ const FOOTER_HTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo/rozeta-labs-01.svg" alt="rozeta labs" style="height:48px;width:auto;margin-bottom:var(--space-4);">
+        <img src="assets/logo/rozeta-labs-horizontal-v2.svg" alt="rozeta labs" style="height:48px;width:auto;margin-bottom:var(--space-4);">
         <p class="footer-tagline">Where AI stops being confusing and starts being useful.</p>
         <div class="footer-social">
           <a href="#" aria-label="X (Twitter)">
@@ -81,8 +81,8 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h4>Get Started</h4>
-        <a href="contact.html">Book a Call</a>
-        <a href="services.html#community">Apply for Membership</a>
+        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9">Apply for Membership</a>
+        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9">Apply for Membership</a>
         <a href="mailto:hey@rozetalabs.com">hey@rozetalabs.com</a>
       </div>
     </div>
@@ -96,7 +96,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="services.html#community" class="btn btn-primary">Apply for Membership</a>
+  <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9" class="btn btn-primary">Apply for Membership</a>
 </div>
 `;
 

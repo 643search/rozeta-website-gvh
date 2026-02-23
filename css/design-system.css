@@ -8,7 +8,7 @@
 /* ── Custom Properties ──────────────────────────────────────── */
 :root {
   /* Colors */
-  --color-bg:             #f5f0e8;
+  --color-bg:             #ffffff;
   --color-surface:        #f2efef;
   --color-surface-2:      #e8e4e4;
   --color-border:         #c7c8c8;
@@ -92,7 +92,7 @@
   /* Layout */
   --container-max:   1200px;
   --container-narrow: 760px;
-  --nav-height:       100px;
+  --nav-height:       80px;
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
