@@ -92,7 +92,7 @@
   /* Layout */
   --container-max:   1200px;
   --container-narrow: 760px;
-  --nav-height:       72px;
+  --nav-height:       100px;
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
