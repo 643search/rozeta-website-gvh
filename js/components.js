@@ -22,9 +22,10 @@ const NAV_HTML = `
       </div>
       <a href="services.html">Services</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary btn-sm">Apply for Membership</a>
+      <a href="apply-for-membership.html" class="btn btn-primary btn-sm">Apply for Membership</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -39,7 +40,8 @@ const NAV_HTML = `
     <a href="podcast.html">Podcast</a>
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
-    <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
   </div>
 </nav>
 `;
@@ -81,8 +83,8 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h4>Get Started</h4>
-        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo">Apply for Membership</a>
-        <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo">Apply for Membership</a>
+        <a href="apply-for-membership.html">Apply for Membership</a>
+        <a href="hire-consultant.html">Hire a Consultant</a>
         <a href="mailto:hey@rozetalabs.com">hey@rozetalabs.com</a>
       </div>
     </div>
@@ -96,7 +98,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
+  <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
 </div>
 `;
 
@@ -191,9 +193,7 @@ if (document.readyState === 'loading') {
    Rozeta Labs AI Chatbot — Custom Widget
    ============================================================ */
 (function initChatbot() {
-  var API_HOST  = 'https://docsgpt-production.up.railway.app';
-  var API_KEY   = 'a11e71a8-3ceb-4c69-9b4d-1bacaec3a972';
-  var PROMPT_ID = '69991ea3f93308f6a295758e';
+  var API_ENDPOINT = '/api/chat';
 
   /* ── Styles ── */
   var style = document.createElement('style');
@@ -292,11 +292,14 @@ if (document.readyState === 'loading') {
       return [h.prompt, h.response];
     }));
 
-    fetch(API_HOST + '/stream', {
+    fetch(API_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + API_KEY },
-      body: JSON.stringify({ question: q, history: histStr, prompt_id: PROMPT_ID }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q, history: histStr }),
     }).then(function(res) {
+      if (!res.ok || !res.body) {
+        throw new Error('Chat request failed');
+      }
       var reader = res.body.getReader();
       var decoder = new TextDecoder();
       var answer = '';

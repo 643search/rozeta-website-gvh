@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intel - rozeta labs</title>
   <meta name="description" content="Workflow breakdowns, tool evaluations, and operator intelligence - written by people who actually run businesses, for people who actually run businesses.">
@@ -29,7 +30,7 @@
     <h1 class="reveal reveal-delay-1">The Signal. <span style="color:var(--color-accent)">Not the Noise.</span></h1>
     <p class="reveal reveal-delay-2">Workflow breakdowns, tool evaluations, and operator intelligence - written by people who actually run businesses, for people who actually run businesses.</p>
     <div class="page-hero-ctas reveal reveal-delay-3">
-      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
+      <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
     </div>
   </div>
 </section>
@@ -52,7 +53,7 @@
 
     <div style="text-align:center;margin-top:var(--space-12)" class="reveal">
       <p style="font-size:var(--text-body);color:var(--color-text-muted);margin-bottom:var(--space-5)">More posts published weekly. Join the community to get them first.</p>
-      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary">Apply for Membership</a>
+      <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
     </div>
 
   </div>
@@ -64,7 +65,7 @@
     <h2 class="reveal">Want to Go Deeper Than a Blog Post?</h2>
     <p class="reveal reveal-delay-1">The community is where the real implementation happens. Live sessions, prompt libraries, operator-to-operator sharing, and two founders who are always in the room.</p>
     <div class="final-cta-buttons reveal reveal-delay-2">
-      <a href="https://api.leadconnectorhq.com/widget/survey/ou3QNqMTtRervg9LY8vo" class="btn btn-primary btn-lg">Apply for Membership</a>
+      <a href="apply-for-membership.html" class="btn btn-primary btn-lg">Apply for Membership</a>
     </div>
   </div>
 </section>
@@ -102,28 +103,72 @@
   function renderPosts(filter) {
     var list = document.getElementById('intel-list');
     var filtered = filter === 'all' ? allPosts : allPosts.filter(function (p) { return p.category === filter; });
+    list.textContent = '';
 
     if (filtered.length === 0) {
-      list.innerHTML = '<p style="padding:var(--space-8) 0;color:var(--color-text-muted);">No posts in this category yet.</p>';
+      var empty = document.createElement('p');
+      empty.style.padding = 'var(--space-8) 0';
+      empty.style.color = 'var(--color-text-muted)';
+      empty.textContent = 'No posts in this category yet.';
+      list.appendChild(empty);
       return;
     }
 
-    list.innerHTML = filtered.map(function (post, i) {
+    filtered.forEach(function (post) {
       var label = CATEGORY_LABELS[post.category] || (post.category || '');
       var authorName = (post.author && post.author.name) ? post.author.name : '';
       var slug = (post.slug && post.slug.current) ? post.slug.current : '';
-      return '<article class="intel-row" data-category="' + (post.category || '') + '">' +
-        '<a href="post.html?slug=' + encodeURIComponent(slug) + '" style="display:block;text-decoration:none;color:inherit;">' +
-        '<div class="intel-row-meta">' +
-        '<span class="intel-tag">' + label + '</span>' +
-        (post.readTime ? '<span class="intel-read">' + post.readTime + ' min read</span>' : '') +
-        '</div>' +
-        '<h3 class="intel-row-title">' + (post.title || '') + '</h3>' +
-        '<p class="intel-row-excerpt">' + (post.excerpt || '') + '</p>' +
-        '<div class="intel-row-byline">' + authorName + (post.publishedAt ? '<span> · </span>' + formatDate(post.publishedAt) : '') + '</div>' +
-        '</a>' +
-        '</article>';
-    }).join('');
+
+      var article = document.createElement('article');
+      article.className = 'intel-row';
+      article.setAttribute('data-category', post.category || '');
+
+      var link = document.createElement('a');
+      link.href = 'post.html?slug=' + encodeURIComponent(slug);
+      link.style.display = 'block';
+      link.style.textDecoration = 'none';
+      link.style.color = 'inherit';
+
+      var meta = document.createElement('div');
+      meta.className = 'intel-row-meta';
+
+      var tag = document.createElement('span');
+      tag.className = 'intel-tag';
+      tag.textContent = label;
+      meta.appendChild(tag);
+
+      if (post.readTime) {
+        var read = document.createElement('span');
+        read.className = 'intel-read';
+        read.textContent = post.readTime + ' min read';
+        meta.appendChild(read);
+      }
+
+      var title = document.createElement('h3');
+      title.className = 'intel-row-title';
+      title.textContent = post.title || '';
+
+      var excerpt = document.createElement('p');
+      excerpt.className = 'intel-row-excerpt';
+      excerpt.textContent = post.excerpt || '';
+
+      var byline = document.createElement('div');
+      byline.className = 'intel-row-byline';
+      byline.textContent = authorName || '';
+      if (post.publishedAt) {
+        var dot = document.createElement('span');
+        dot.textContent = ' · ';
+        byline.appendChild(dot);
+        byline.appendChild(document.createTextNode(formatDate(post.publishedAt)));
+      }
+
+      link.appendChild(meta);
+      link.appendChild(title);
+      link.appendChild(excerpt);
+      link.appendChild(byline);
+      article.appendChild(link);
+      list.appendChild(article);
+    });
   }
 
   fetch(CDN + '?query=' + query)

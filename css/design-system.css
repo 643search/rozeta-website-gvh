@@ -232,6 +232,22 @@ p {
   transform: translateY(0);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-text-primary);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
 .btn-secondary {
   background: var(--color-white);
   color: var(--color-cta-secondary);
