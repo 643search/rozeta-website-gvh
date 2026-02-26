@@ -1442,13 +1442,13 @@
   background: var(--color-bg);
 }
 
-/* ── 3-Column Pricing Grid ───────────────────────────────────── */
+/* ── 2-Column Pricing Grid ───────────────────────────────────── */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
   margin: var(--space-12) auto 0;
-  max-width: 1040px;
+  max-width: 936px;
 }
 
 .pricing-card {
