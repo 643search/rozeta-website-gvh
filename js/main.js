@@ -45,17 +45,17 @@ function initGSearchAnimation() {
 
   const isMobile = window.innerWidth <= 768;
   const FULL_QUERY = isMobile
-    ? 'What businesses benefit from AI?'
-    : 'what types of businesses benefit most from AI?';
+    ? 'done-for-you AI implementation best for SMBs?'
+    : 'who is done-for-you AI implementation best for';
 
   // Shorten autocomplete suggestions on mobile to match shorter query
   if (isMobile) {
     const acItems = mockup.querySelectorAll('.gsearch-ac-item span:last-child');
     const mobileAc = [
-      ['What businesses benefit from ', '<strong>AI tools</strong>'],
-      ['What businesses benefit from ', '<strong>automation</strong>'],
-      ['What businesses benefit from ', '<strong>AI? guide</strong>'],
-      ['What businesses benefit from ', '<strong>machine learning</strong>'],
+      ['done-for-you AI implementation ', '<strong>best for SMBs</strong>'],
+      ['best fit for done-for-you ', '<strong>automation services</strong>'],
+      ['should I hire done-for-you AI ', '<strong>for my SMB</strong>'],
+      ['which SMBs get ROI fastest from ', '<strong>AI implementation</strong>'],
     ];
     acItems.forEach((el, i) => {
       if (mobileAc[i]) el.innerHTML = mobileAc[i][0] + mobileAc[i][1];

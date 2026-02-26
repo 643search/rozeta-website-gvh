@@ -25,7 +25,7 @@ const NAV_HTML = `
       <a href="contact.html">Contact</a>
     </div>
     <div class="nav-cta">
-      <a href="apply-for-membership.html" class="btn btn-primary btn-sm">Apply for Membership</a>
+      <a href="apply-for-membership.html" class="btn btn-primary btn-sm">Book Discovery Call</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
@@ -41,7 +41,7 @@ const NAV_HTML = `
     <a href="services.html">Services</a>
     <a href="case-studies.html">Case Studies</a>
     <a href="contact.html">Contact</a>
-    <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
+    <a href="apply-for-membership.html" class="btn btn-primary">Book Discovery Call</a>
   </div>
 </nav>
 `;
@@ -83,8 +83,7 @@ const FOOTER_HTML = `
       </div>
       <div class="footer-col">
         <h4>Get Started</h4>
-        <a href="apply-for-membership.html">Apply for Membership</a>
-        <a href="hire-consultant.html">Hire a Consultant</a>
+        <a href="apply-for-membership.html">Book Discovery Call</a>
         <a href="mailto:hey@rozetalabs.com">hey@rozetalabs.com</a>
       </div>
     </div>
@@ -98,7 +97,7 @@ const FOOTER_HTML = `
 
 const MOBILE_CTA_HTML = `
 <div class="mobile-cta-bar">
-  <a href="apply-for-membership.html" class="btn btn-primary">Apply for Membership</a>
+  <a href="apply-for-membership.html" class="btn btn-primary">Book Discovery Call</a>
 </div>
 `;
 
