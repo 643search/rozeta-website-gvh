@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Rozeta Labs",
+  "alternateName": "rozeta labs",
+  "url": "https://rozetalabs.com",
+  "logo": "https://rozetalabs.com/assets/logo/rozeta-labs-horizontal-v2.svg",
+  "image": "https://rozetalabs.com/assets/og-image.png",
+  "description": "Rozeta Labs is an AI enablement company that helps small and medium-sized business operators implement AI across their entire team. Through live training sessions, a hands-on community, and done-for-you systems, Rozeta Labs makes AI practical and accessible — no technical background required.",
+  "foundingDate": "2024",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Greg",
+      "jobTitle": "Co-Founder",
+      "worksFor": {"@type": "Organization", "name": "Rozeta Labs"}
+    },
+    {
+      "@type": "Person",
+      "name": "Hunter",
+      "jobTitle": "Co-Founder",
+      "worksFor": {"@type": "Organization", "name": "Rozeta Labs"}
+    }
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "targetMarket": "Small and medium-sized businesses (SMBs) with 5–50 employees, especially service businesses, home services, trades, contractors, and operators generating $500K–$10M in annual revenue.",
+  "serviceType": [
+    "AI Consulting",
+    "AI Training",
+    "AI Implementation",
+    "AI Enablement",
+    "Fractional AI Officer",
+    "AI Workflow Design",
+    "Done-for-You AI Systems"
+  ],
+  "knowsAbout": [
+    "AI implementation for small business",
+    "ChatGPT for business operations",
+    "AI automation for home services",
+    "AI training for non-technical teams",
+    "AI workflow design for SMBs",
+    "CRM automation with AI",
+    "Lead generation with AI",
+    "AI for HVAC businesses",
+    "AI for roofing companies",
+    "AI for plumbing contractors",
+    "AI for landscaping companies",
+    "AI for service-based businesses",
+    "Fractional AI officer for SMBs",
+    "Team-wide AI adoption",
+    "AI consulting for non-tech founders"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Rozeta Labs Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "AI Enablement Community",
+        "description": "A hands-on AI training community for business owners and their teams. Includes live group training sessions, AI playbooks, peer accountability, and direct access to Rozeta's AI experts.",
+        "url": "https://rozetalabs.com/services.html#community",
+        "category": "Community Membership"
+      },
+      {
+        "@type": "Offer",
+        "name": "AI Consulting & Custom Implementation",
+        "description": "Done-for-you AI systems and custom implementation projects. Rozeta builds, integrates, and deploys AI workflows directly into your business operations.",
+        "url": "https://rozetalabs.com/hire-consultant.html",
+        "category": "Consulting"
+      }
+    ]
+  },
+  "priceRange": "$$",
+  "sameAs": [
+    "https://www.linkedin.com/company/rozeta-labs",
+    "https://twitter.com/rozetalabs"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "url": "https://rozetalabs.com/contact.html"
+  },
+  "notableFor": [
+    "Team-wide AI training (not just the owner)",
+    "Plain-English AI education — no technical background required",
+    "Serving home services and trades businesses",
+    "Combining community, training, and done-for-you implementation",
+    "AI enablement specifically designed for SMB operators"
+  ],
+  "whatRozetaIsNot": [
+    "Not a software company — Rozeta Labs does not build proprietary AI software",
+    "Not a Big 4 consulting firm — focused exclusively on SMBs, not enterprise clients",
+    "Not a generic AI course platform — live sessions, community, and hands-on implementation",
+    "Not a staffing agency — does not place AI employees",
+    "Not limited to one industry — serves all service-based SMBs"
+  ]
+}
