@@ -7,7 +7,7 @@ const NAV_HTML = `
 <nav class="nav" id="main-nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <img src="assets/logo/rozeta-labs-horizontal-v4.svg" alt="rozeta labs" style="height:44px;width:auto;">
+      <img src="assets/logo/rozeta-labs-horizontal-v5.svg" alt="rozeta labs" style="height:44px;width:auto;">
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -51,7 +51,7 @@ const FOOTER_HTML = `
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo/rozeta-labs-horizontal-v4.svg" alt="rozeta labs" style="height:48px;width:auto;margin-bottom:var(--space-4);">
+        <img src="assets/logo/rozeta-labs-horizontal-v5.svg" alt="rozeta labs" style="height:48px;width:auto;margin-bottom:var(--space-4);">
         <p class="footer-tagline">Where AI stops being confusing and starts being useful.</p>
         <div class="footer-social">
           <a href="#" aria-label="X (Twitter)">

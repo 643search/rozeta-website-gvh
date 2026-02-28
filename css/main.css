@@ -1471,6 +1471,10 @@
   height: 56px;
 }
 
+.pricing-card--enterprise .pricing-card-price-row {
+  margin-top: 74px;
+}
+
 .pricing-card-label {
   font-size: 12px;
   font-weight: 700;
