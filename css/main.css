@@ -753,38 +753,23 @@
 .problem-compare {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 18px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.75);
 }
 
 .problem-state {
-  padding: 24px 24px 20px;
-}
-
-.problem-state + .problem-state {
-  border-left: 1px solid rgba(0,0,0,0.08);
+  padding: 32px 36px 36px;
 }
 
 .problem-state h3 {
-  margin: 0 0 14px;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.problem-state--before {
-  background: linear-gradient(180deg, rgba(156,31,34,0.06) 0%, rgba(156,31,34,0.02) 100%);
+  text-align: center;
 }
 
 .problem-state--before h3 {
   color: #8a1f2a;
-}
-
-.problem-state--after {
-  background: linear-gradient(180deg, rgba(38,110,92,0.08) 0%, rgba(38,110,92,0.03) 100%);
 }
 
 .problem-state--after h3 {
@@ -796,41 +781,59 @@
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 10px;
+  gap: 14px;
 }
 
 .problem-state li {
   position: relative;
-  padding-left: 18px;
-  font-size: clamp(16px, 1.35vw, 19px);
-  line-height: 1.45;
+  padding-left: 22px;
+  font-size: clamp(15px, 1.25vw, 18px);
+  line-height: 1.5;
   color: var(--color-text-primary);
 }
 
-.problem-state li::before {
-  content: '';
+.problem-state--before li {
+  font-family: var(--font-display);
+  color: var(--color-text-secondary);
+}
+
+.problem-state--before li::before {
+  content: '×';
   position: absolute;
   left: 0;
-  top: 0.56em;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.55;
+  top: 0.05em;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(138,31,42,0.55);
+}
+
+.problem-state--after li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-size: 13px;
+  line-height: 1;
+  color: rgba(38,110,92,0.7);
 }
 
 .problem-bottomline {
   grid-column: 1 / -1;
-  padding: 18px 24px 20px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.92);
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-text-primary);
+  padding: 28px 36px 8px;
+  border-top: 1px solid rgba(34,55,59,0.1);
+  background: transparent;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 
 .problem-bottomline strong {
-  color: #22373b;
+  font-style: normal;
+  font-weight: 500;
+  color: var(--color-text-primary);
 }
 
 /* ── What We Do (2 pillars) ─────────────────────────────────── */
@@ -2618,38 +2621,37 @@
 
   .problem-state + .problem-state {
     border-left: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(34,55,59,0.12);
   }
 
   .problem-state {
-    padding: 16px 14px 14px;
+    padding: 20px 20px 20px;
   }
 
   .problem-state h3 {
-    margin-bottom: 10px;
-    font-size: 12px;
+    margin-bottom: 12px;
+    font-size: 11px;
   }
 
   .problem-state ul {
-    gap: 7px;
+    gap: 10px;
   }
 
   .problem-state li {
     font-size: 15px;
-    line-height: 1.35;
-    padding-left: 14px;
+    line-height: 1.4;
+    padding-left: 20px;
   }
 
-  .problem-state li::before {
-    width: 6px;
-    height: 6px;
-    top: 0.52em;
+  .problem-state--before li::before,
+  .problem-state--after li::before {
+    font-size: 12px;
   }
 
   .problem-bottomline {
-    padding: 12px 14px 14px;
+    padding: 20px 20px 0;
     font-size: 15px;
-    line-height: 1.45;
+    line-height: 1.55;
   }
 
   .trust-bar-items {
