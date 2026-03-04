@@ -192,6 +192,9 @@ if (document.readyState === 'loading') {
    Rozeta Labs AI Chatbot — Custom Widget
    ============================================================ */
 (function initChatbot() {
+  var ENABLE_ROZIE_CHAT = false;
+  if (!ENABLE_ROZIE_CHAT) return;
+
   var API_ENDPOINT = '/api/chat';
 
   /* ── Styles ── */
