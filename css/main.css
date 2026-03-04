@@ -871,6 +871,27 @@
   gap: 2px;
 }
 
+.service-copy {
+  padding: 24px 18px 22px;
+}
+
+.service-quote,
+.service-meta {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1d1c1d;
+  margin: 0;
+}
+
+.service-meta {
+  margin-top: 16px;
+}
+
+.service-meta strong {
+  color: #1d1c1d;
+}
+
 .slack-step-label {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 11px;
@@ -981,6 +1002,63 @@
   gap: var(--space-4);
   justify-content: center;
   margin-top: var(--space-12);
+}
+
+.fit-checklist {
+  max-width: 860px;
+  margin: 48px auto 0;
+}
+
+.fit-checklist-card {
+  padding: clamp(26px, 4vw, 40px);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.96) 100%);
+  box-shadow: 0 18px 54px rgba(34, 55, 59, 0.08);
+}
+
+.fit-checklist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fit-checklist-list li {
+  position: relative;
+  padding-left: 34px;
+  font-size: clamp(18px, 1.7vw, 24px);
+  line-height: 1.45;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.fit-checklist-list li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(0,0,0,0.65);
+  border-radius: 2px;
+  background: transparent;
+  transform: translateY(-50%);
+}
+
+.fit-checklist-bottom {
+  margin: 28px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.fit-checklist-bottom strong {
+  color: #22373b;
 }
 
 /* ── Who We Serve — Google Search Mockup ─────────────────────── */
