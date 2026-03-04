@@ -900,8 +900,41 @@
   color: var(--color-text-primary);
 }
 
-.section-what-we-do .pillars-grid {
-  gap: 48px;
+.what-we-do-phases {
+  max-width: 680px;
+  margin: var(--space-12) auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.what-we-do-phase-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 400;
+  text-align: center;
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-primary);
+}
+
+.phase-bullet-cols {
+  display: flex;
+  gap: var(--space-10);
+  margin-top: var(--space-6);
+  text-align: left;
+}
+
+.phase-bullet-cols ul {
+  flex: 1;
+  list-style: disc;
+  padding-left: 1.2em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: clamp(15px, 1.1vw, 17px);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
 .section-what-we-do .slack-card {
@@ -2685,17 +2718,14 @@
   .imsg-bubble { max-width: 82%; font-size: 13px; }
   .imsg-mockup { margin: 32px auto 0; }
 
-  .section-what-we-do .pillars-grid {
-    gap: 32px;
-    margin-top: 24px;
+  .what-we-do-phases {
+    margin-top: var(--space-8);
+    gap: var(--space-10);
   }
 
-  .section-what-we-do .slack-card {
-    padding-top: 18px;
-  }
-
-  .section-what-we-do .slack-step-desc {
-    font-size: 20px;
+  .phase-bullet-cols {
+    flex-direction: column;
+    gap: var(--space-5);
   }
 
   .service-quote,
